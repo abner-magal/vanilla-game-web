@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BN Games - Premium Arcade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                400: '#2dd4bf',
+                500: '#14b8a6',
+                600: '#0d9488',
+              },
+              dark: {
+                bg: '#0f172a',
+                surface: '#1e293b',
+              },
+              accent: {
+                purple: '#8b5cf6',
+                pink: '#ec4899',
+              },
+            },
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+              display: ['Rajdhani', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .glass-card {
+        background: linear-gradient(
+          145deg,
+          rgba(30, 41, 59, 0.9),
+          rgba(15, 23, 42, 0.95)
+        );
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(to right, #2dd4bf, #8b5cf6);
+      }
+
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+
+        50% {
+          transform: translateY(-20px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body
+    class="bg-dark-bg text-slate-200 font-sans selection:bg-brand-500 selection:text-white overflow-x-hidden"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass border-b border-slate-700/50 transition-all duration-300 bg-dark-bg/90 backdrop-blur-md shadow-lg"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a
+            href="/"
+            class="flex-shrink-0 flex items-center gap-3 cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded-lg"
+            aria-label="BN Games - voltar ao início"
+          >
+            <div
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-brand-500 flex items-center justify-center text-white font-bold text-xl shadow-[0_10px_30px_rgba(20,184,166,0.35)] transition-all duration-300 group-hover:shadow-[0_12px_40px_rgba(20,184,166,0.5)] group-hover:scale-105 group-hover:-rotate-3"
+            >
+              B
+            </div>
+            <span
+              class="font-display font-bold text-xl sm:text-2xl tracking-wider text-white transition-colors group-hover:text-brand-400"
+              >BN<span class="text-brand-500">GAMES</span></span
+            >
+          </a>
+
+          <!-- Hamburger Menu Button (Mobile) -->
+          <button
+            id="hamburgerBtn"
+            class="hamburger md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-dark-surface/50 border border-slate-700 hover:border-brand-500 transition-colors"
+            aria-label="Abrir menu de navegação"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            <span class="hamburger-line w-5 h-0.5 bg-brand-400 rounded-full transition-all duration-300"></span>
+            <span class="hamburger-line w-5 h-0.5 bg-brand-400 rounded-full transition-all duration-300 my-1"></span>
+            <span class="hamburger-line w-5 h-0.5 bg-brand-400 rounded-full transition-all duration-300"></span>
+          </button>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="#"
+                class="text-white hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Início</a
+              >
+              <a
+                href="#games"
+                class="text-slate-300 hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >Jogos</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile Navigation Menu -->
+          <div
+            id="navLinks"
+            class="nav-links hidden md:hidden absolute top-full left-0 right-0 bg-dark-bg/95 backdrop-blur-md border-b border-slate-700 shadow-lg"
+          >
+            <div class="flex flex-col py-4 px-4 space-y-2">
+              <a
+                href="#"
+                class="nav-link text-white hover:text-brand-400 hover:bg-dark-surface px-4 py-3 rounded-lg text-base font-medium transition-colors"
+                >Início</a
+              >
+              <a
+                href="#games"
+                class="nav-link text-slate-300 hover:text-brand-400 hover:bg-dark-surface px-4 py-3 rounded-lg text-base font-medium transition-colors"
+                >Jogos</a
+              >
+              <!-- Mobile Search -->
+              <div class="relative mt-2 pt-2 border-t border-slate-700">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 text-lg mt-1"
+                  >search</span
+                >
+                <input
+                  type="text"
+                  placeholder="Buscar jogos..."
+                  id="mobileSearchInput"
+                  class="bg-dark-surface/50 border border-slate-700 text-slate-200 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 block w-full pl-10 p-3 transition-all outline-none"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Actions -->
+          <div class="hidden md:flex items-center gap-4">
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 text-lg"
+                >search</span
+              >
+              <input
+                type="text"
+                placeholder="Buscar jogos..."
+                id="searchInput"
+                class="bg-dark-surface/50 border border-slate-700 text-slate-200 text-sm rounded-full focus:ring-brand-500 focus:border-brand-500 block w-64 pl-10 p-2.5 transition-all focus:w-72 outline-none"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+      class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+    >
+      <!-- Background -->
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-dark-bg"
+        ></div>
+        <div
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"
+        ></div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-semibold mb-8 animate-float"
+        >
+          <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+          Nova Experiência Arcade
+        </div>
+
+        <h1
+          class="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 tracking-tight leading-none text-white drop-shadow-2xl"
+        >
+          DOMINE OS <br />
+          <span class="text-gradient">CLÁSSICOS</span>
+        </h1>
+
+        <p
+          class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10 font-light"
+        >
+          Reviva a emoção dos arcades em uma experiência premium. 10 jogos
+          lendários, zero instalação, diversão infinita.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <a
+            href="#games"
+            class="px-8 py-4 rounded-xl bg-white text-dark-bg font-bold text-lg hover:bg-slate-200 transition-colors flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+          >
+            <span class="material-symbols-outlined">play_arrow</span>
+            Começar Agora
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Games Grid Section -->
+    <section id="games" class="py-20 bg-dark-bg/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4"
+        >
+          <div>
+            <h2 class="text-4xl font-display font-bold text-white mb-2">
+              Coleção Premium de Jogos
+            </h2>
+            <p class="text-slate-400">
+              Seleção exclusiva dos arcades lendários, pronta para jogar sem downloads.
+            </p>
+          </div>
+        </div>
+
+        <!-- Games Grid -->
+        <div class="flex flex-wrap gap-4 mb-8" id="categoryFilters">
+          <!-- Category buttons will be injected here -->
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          id="gamesGrid"
+        >
+          <!-- Games will be injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-slate-800 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col items-center text-center gap-6 mb-10"
+        >
+          <div class="flex items-center gap-2">
+            <div
+              class="w-8 h-8 rounded bg-brand-500 flex items-center justify-center text-white font-bold"
+            >
+              B
+            </div>
+            <span class="font-display font-bold text-xl text-white"
+              >BN<span class="text-brand-500">GAMES</span></span
+            >
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed max-w-xl">
+            A plataforma definitiva para gamers. Descubra, jogue e conecte-se em
+            um único lugar. O futuro do entretenimento digital.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="https://github.com/abner-magal"
+              target="_blank"
+              class="text-slate-500 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                class="w-5 h-5 filter invert opacity-60 hover:opacity-100 transition-opacity"
+                alt="GitHub"
+              />
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abner-magalhaes-/"
+              target="_blank"
+              class="text-slate-500 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
+                class="w-5 h-5 filter grayscale hover:grayscale-0 transition-all"
+                alt="LinkedIn"
+              />
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800 pt-6 text-center">
+          <p class="text-slate-600 text-sm">
+            © 2025 BN Games. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/game-loader.js"></script>
+  </body>
+</html>

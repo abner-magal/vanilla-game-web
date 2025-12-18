@@ -1,0 +1,203 @@
+/* ═══════════════════════════════════════════════════
+   Mobile Fixes - Prevenção de Overflow Horizontal
+   ═══════════════════════════════════════════════════ */
+
+/* Prevenção de overflow horizontal em viewports pequenos */
+@media (max-width: 400px) {
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw;
+    }
+    
+    /* Fallback universal para prevenir overflow */
+    * {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    /* Exceções para elementos que precisam manter dimensões */
+    canvas, 
+    img[data-preserve-size="true"],
+    .preserve-size {
+        max-width: none !important;
+    }
+}
+
+/* Correções específicas para cards da home page */
+@media (max-width: 320px) {
+    .game-card,
+    .card,
+    [class*="card"] {
+        max-width: 100% !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+    
+    /* Ajuste de padding para telas muito pequenas */
+    .container,
+    .max-w-7xl,
+    .px-4 {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   Touch Targets - Tamanhos Mínimos para Mobile
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    /* Touch targets mínimos conforme WCAG 2.1 */
+    button, 
+    a, 
+    [role="button"],
+    [onclick],
+    input[type="button"],
+    input[type="submit"],
+    .btn,
+    .button {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px 12px;
+    }
+    
+    /* Botões pequenos específicos (volume, pause) */
+    .volume-control button,
+    .control-btn,
+    .icon-btn {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   Canvas Responsivo - Escalonamento Proporcional
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 375px) {
+    /* Canvas scaling para dispositivos pequenos */
+    canvas {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    /* Game board containers */
+    #game-board,
+    .game-board,
+    .canvas-container {
+        max-width: 100% !important;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   Tipografia Responsiva - Prevenção de Truncamento
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 400px) {
+    /* Títulos de jogos */
+    h1, 
+    .game-title,
+    .overlay-content h1 {
+        font-size: clamp(1.5rem, 8vw, 3rem) !important;
+        line-height: 1.2;
+        word-break: break-word;
+        hyphens: auto;
+    }
+    
+    /* Subtítulos */
+    h2,
+    .game-subtitle {
+        font-size: clamp(1.2rem, 6vw, 2rem) !important;
+        line-height: 1.3;
+    }
+    
+    /* Texto do botão "Voltar ao Hub" */
+    .mobile-back-button span:last-child,
+    .back-button-text {
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 120px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   Header Responsivo - Wrapping e Stacking
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 400px) {
+    /* Header principal */
+    .game-header,
+    .navbar .flex {
+        flex-wrap: wrap !important;
+        gap: 8px;
+    }
+    
+    /* HUD elements */
+    .game-hud,
+    .hud,
+    .game-shell__hud {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 12px;
+    }
+    
+    /* Logo e controles em mobile */
+    .logo-container {
+        order: 1;
+        flex: 1 1 100%;
+        text-align: center;
+    }
+    
+    .controls-container {
+        order: 2;
+        flex: 1 1 100%;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   Instruções Condicionais - Mobile vs Desktop
+   ═══════════════════════════════════════════════════ */
+
+/* Instruções mobile (mostrar apenas em telas pequenas) */
+.instructions-mobile {
+    display: flex;
+}
+
+.instructions-desktop {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .instructions-mobile {
+        display: none;
+    }
+    
+    .instructions-desktop {
+        display: flex;
+    }
+}
+
+/* ═══════════════════════════════════════════════════
+   Utilitários de Debug (remover em produção)
+   ═══════════════════════════════════════════════════ */
+
+/* Uncomment para debug de overflow */
+/*
+* {
+    outline: 1px solid red !important;
+}
+*/

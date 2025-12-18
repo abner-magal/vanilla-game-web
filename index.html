@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0;url=./public/index.html">
+    <title>BN Games - Redirecionando...</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0f172a;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .loading {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        a {
+            color: #14b8a6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <h1>BN Games</h1>
+        <p>Redirecionando para a página principal...</p>
+        <noscript>
+            <p><a href="./public/index.html">Clique aqui para acessar BN Games</a></p>
+        </noscript>
+    </div>
+    
+    <script>
+        // Redirect immediately via JavaScript
+        window.location.href = './public/index.html';
+    </script>
+</body>
+</html>

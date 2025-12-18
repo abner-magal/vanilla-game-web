@@ -1,0 +1,92 @@
+[
+    {
+        "id": "whack-a-mole",
+        "title": "Whack-a-Mole",
+        "description": "Arcade de reflexo puro: acerte as topeiras em ritmo acelerado e dispute o topo.",
+        "path": "../src/games/whack-a-mole/index.html",
+        "icon": "🔨",
+        "thumbnail": "assets/images/whack-a-mole/whack-a-mole.webp",
+        "category": "Action"
+    },
+    {
+        "id": "balloon-pop",
+        "title": "Balloon Pop",
+        "description": "Estoure baloes neon, desvie das bombas e encaixe combos brilhantes.",
+        "path": "../src/games/balloon-pop/index.html",
+        "icon": "🎈",
+        "thumbnail": "assets/images/balloon-pop/balloon-pop.webp",
+        "category": "Casual"
+    },
+    {
+        "id": "memory-match",
+        "title": "Memory Match",
+        "description": "Duelo de memoria com cartas neon e feedback imediato a cada par.",
+        "path": "../src/games/memory-match/index.html",
+        "icon": "🃏",
+        "thumbnail": "assets/images/memory-match/memory-match.webp",
+        "category": "Puzzle"
+    },
+    {
+        "id": "snake",
+        "title": "Snake",
+        "description": "Snake classico turbinado com trilha retro e velocidade crescente.",
+        "path": "../src/games/snake/index.html",
+        "icon": "🐍",
+        "thumbnail": "assets/images/snake/snake.webp",
+        "category": "Arcade"
+    },
+    {
+        "id": "pong",
+        "title": "Pong",
+        "description": "Pong competitivo com fisica precisa e pontos relampago.",
+        "path": "../src/games/pong/index.html",
+        "icon": "🏓",
+        "thumbnail": "assets/images/pong/pong.webp",
+        "category": "Arcade"
+    },
+    {
+        "id": "breakout",
+        "title": "Breakout",
+        "description": "Quebre paredes neon com ricochetes controlados e power-ups raros.",
+        "path": "../src/games/breakout/index.html",
+        "icon": "🧱",
+        "thumbnail": "assets/images/breakout/breakout.webp",
+        "category": "Arcade"
+    },
+    {
+        "id": "space-invaders",
+        "title": "Space Invaders",
+        "description": "Defenda a Terra de ondas alien ao som de tiros cadenciados.",
+        "path": "../src/games/space-invaders/index.html",
+        "icon": "👾",
+        "thumbnail": "assets/images/space-invaders/space-invaders.webp",
+        "category": "Shooter"
+    },
+    {
+        "id": "tetris",
+        "title": "Tetris",
+        "description": "Tetris lendario com quedas suaves, ritmo arcade e linhas limpas.",
+        "path": "../src/games/tetris/index.html",
+        "icon": "🧩",
+        "thumbnail": "assets/images/tetris/tetris.webp",
+        "category": "Puzzle"
+    },
+    {
+        "id": "drag-drop",
+        "title": "Number Puzzle",
+        "description": "Organize os numeros arrastando com suavidade; cada movimento e estrategia.",
+        "path": "../src/games/drag-drop/index.html",
+        "icon": "🔢",
+        "thumbnail": "assets/images/drag-drop/drag-drop.webp",
+        "category": "Puzzle"
+    },
+    {
+        "id": "simon-says",
+        "title": "Simon Says",
+        "description": "Memorize sequencias de luz e som com dificuldade progressiva.",
+        "path": "../src/games/simon-says/index.html",
+        "icon": "💡",
+        "thumbnail": "assets/images/simon-says/simon-says.webp",
+        "category": "Memory"
+    }
+]

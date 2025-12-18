@@ -1,0 +1,90 @@
+/* Pong Styles - BN Games */
+
+:root {
+    /* Brand Colors */
+    --brand-400: #2dd4bf;
+    --brand-500: #14b8a6;
+    --brand-600: #0d9488;
+    
+    /* UI Colors */
+    --dark-surface: #1e293b;
+    --slate-700: #334155;
+    --slate-800: #1e293b; /* Adjusting for button bg */
+}
+
+/* --- Custom Components (matching Reference but using Project Tokens) --- */
+
+.glass-card {
+    /* Tailwind handles most, this adds specific polish */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Pause Button */
+.btn-icon-large {
+    background-color: rgba(30, 41, 59, 0.8); /* dark-surface/80 */
+    border: 1px solid var(--slate-700);
+    color: var(--brand-400); /* Teal Icon */
+    width: 48px; /* Slightly larger to match ref */
+    height: 48px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-icon-large:hover {
+    background-color: var(--slate-700);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 0 15px rgba(45, 212, 191, 0.3); /* Glow on hover */
+    border-color: var(--brand-500);
+}
+
+.btn-icon-large .material-symbols-outlined {
+    font-size: 28px; /* Larger icon */
+}
+
+/* Difficulty Buttons */
+.btn-level.active {
+    background: #115e59; /* Brand-800/Darker Teal */
+    color: var(--brand-400);
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.2);
+}
+
+/* Overlay */
+.overlay-hidden {
+    display: none !important;
+}
+
+/* Responsive Fixes */
+@media (max-width: 640px) {
+    .header-top {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hud {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .volume-control {
+        width: 100%;
+        justify-content: center;
+    }
+    .controls-area {
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+    .action-group {
+        width: 100%;
+        justify-content: center;
+    }
+    .difficulty-group {
+        width: 100%;
+        align-items: center;
+    }
+}

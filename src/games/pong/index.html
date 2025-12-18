@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong - BN Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0"
+    />
+    <link rel="stylesheet" href="../../../styles/components/difficulty-selector.css" />
+    <link rel="stylesheet" href="../../../styles/components/game-responsive.css" />
+    <link rel="stylesheet" href="../../../styles/components/volume-control.css" />
+
+    <link rel="stylesheet" href="../../../styles/components/mobile-fixes.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#f0fdfa',
+                100: '#ccfbf1',
+                200: '#99f6e4',
+                300: '#5eead4',
+                400: '#2dd4bf',
+                500: '#14b8a6',
+                600: '#0d9488',
+                700: '#0f766e',
+                800: '#115e59',
+                900: '#134e4a',
+              },
+              dark: {
+                bg: '#0f172a',
+                surface: '#1e293b',
+                elevated: '#334155',
+              },
+              accent: {
+                purple: '#8b5cf6',
+                pink: '#ec4899',
+              },
+            },
+            fontFamily: {
+              sans: ['Outfit', 'sans-serif'],
+              display: ['Rajdhani', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      canvas {
+        image-rendering: pixelated;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-dark-bg text-slate-200 font-sans selection:bg-brand-500 selection:text-white min-h-screen flex flex-col"
+  >
+    <!-- Navbar -->
+    <nav class="w-full z-50 glass border-b border-slate-700/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a
+            href="../../../public/index.html"
+            class="flex items-center gap-2 group hover:opacity-80 transition-opacity"
+          >
+            <span class="material-symbols-outlined text-brand-500"
+              >arrow_back</span
+            >
+            <span class="font-display font-bold text-xl text-white"
+              >Voltar ao Hub</span
+            >
+          </a>
+          <div class="flex items-center gap-2">
+            <div
+              class="w-8 h-8 rounded bg-brand-500 flex items-center justify-center text-white font-bold"
+            >
+              B
+            </div>
+            <span class="font-display font-bold text-xl text-white"
+              >BN<span class="text-brand-500">GAMES</span></span
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Game Container -->
+    <main class="flex-grow flex items-center justify-center p-4">
+      <div id="game-container" class="game-shell game-panel game-panel--padded gap-4">
+        <!-- Header: Controls, HUD, Settings -->
+        <header class="game-shell__hud">
+          <div class="game-shell__hud-group">
+            <button id="btn-pause" class="btn-icon-large" title="Pause Game">
+              <span class="material-symbols-outlined">pause</span>
+            </button>
+          </div>
+          <div class="game-shell__hud-group">
+            <div class="hud flex items-center gap-8 font-display uppercase tracking-widest">
+              <div class="hud-player flex flex-col items-center">
+                <span class="label label-p1 text-xs font-bold text-brand-400 drop-shadow-[0_0_10px_rgba(45,212,191,0.4)] mb-1">Player</span>
+                <span class="score score-p1 text-4xl font-bold text-brand-500 drop-shadow-[0_0_15px_rgba(45,212,191,0.6)]" id="scorePlayer">0</span>
+              </div>
+              <div class="divider h-10 w-px bg-slate-700"></div>
+              <div class="hud-player flex flex-col items-center">
+                <span class="label label-cpu text-xs font-bold text-slate-400 mb-1">CPU</span>
+                <span class="score score-cpu text-4xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" id="scoreCpu">0</span>
+              </div>
+              <div class="hud-player flex flex-col items-center">
+                <span class="label text-xs font-bold text-slate-500 mb-1 uppercase tracking-widest">Best</span>
+                <span class="score text-4xl font-bold text-accent-pink drop-shadow-[0_0_12px_rgba(236,72,153,0.5)]" id="highScore">0</span>
+              </div>
+            </div>
+            <div class="controls-row">
+              <div id="difficulty-control" class="max-w-[260px]"></div>
+              <div id="volume-control" class="max-w-[220px]"></div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Game Board -->
+        <div class="game-shell__content">
+          <div class="board-viewport game-panel relative">
+            <div class="canvas-wrapper relative w-full rounded-xl overflow-hidden border-2 border-slate-700 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] aspect-[3/2]">
+              <canvas id="gameBoard" width="600" height="400" class="bg-black w-full h-full block cursor-none"></canvas>
+              <div id="pause-overlay" class="overlay-screen overlay-responsive hidden">
+                <div class="overlay-content">
+                  <span class="font-display text-6xl font-bold text-brand-400 tracking-widest drop-shadow-[0_0_20px_rgba(20,184,166,1)]">PAUSED</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="controls-row justify-between items-start gap-4 pt-4 flex-wrap">
+              <div class="action-group flex items-center gap-4 flex-wrap">
+                <div class="instructions text-sm text-slate-400 flex items-center gap-2 hidden sm:flex">
+                  <span class="key bg-white/10 px-1.5 py-0.5 rounded border border-white/20 font-mono text-xs">↑</span>
+                  <span class="key bg-white/10 px-1.5 py-0.5 rounded border border-white/20 font-mono text-xs">↓</span>
+                  to Move
+                </div>
+                <div class="instructions text-sm text-slate-400 flex items-center gap-2 sm:hidden">
+                  <span class="material-symbols-outlined text-base">swipe</span>
+                  <span>Deslize para mover</span>
+                </div>
+                <button id="btnRestart" class="btn-pill bg-brand-500 text-dark-bg font-bold py-3 px-8 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.4)] hover:bg-brand-400 hover:shadow-[0_0_25px_rgba(45,212,191,0.6)] hover:-translate-y-0.5 transition-all uppercase tracking-wider">
+                  Start Match
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Core Scripts -->
+    <script src="../../core/GameLoop.js?v=2"></script>
+    <script src="../../core/InputManager.js?v=2"></script>
+    <script src="../../core/AudioManager.js?v=2"></script>
+    <script src="../../core/GameEngine.js?v=2"></script>
+    <script src="../../core/DifficultyManager.js?v=2"></script>
+    <script src="../../core/Storage.js?v=2"></script>
+    <script src="../../components/UI/VolumeControl.js?v=2"></script>
+    <script src="../../components/UI/DifficultySelector.js?v=2"></script>
+
+    <!-- Game Script -->
+    <script src="PongGame.js?v=2"></script>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+/* Snake Game Styles */
+
+:root {
+  --color-bg: #0f172a;
+  --color-grid: rgba(255, 255, 255, 0.03);
+  --color-snake: #14b8a6;
+  --color-snake-head: #2dd4bf;
+  --color-food: #ec4899;
+  --color-glow: rgba(20, 184, 166, 0.4);
+  --transition-speed: 0.1s; /* Dynamic via JS */
+}
+
+/* Game Board & Grid */
+#game-board {
+  width: 400px;
+  height: 400px;
+  background-color: var(--color-bg);
+  /* Retro Grid Pattern */
+  background-image: linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size: 20px 20px;
+
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+
+  border-radius: 12px;
+  box-shadow: 0 0 0 4px #1e293b, 0 0 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden; /* Contain particles */
+}
+
+/* Snake Body */
+.snake-body {
+  background-color: var(--color-snake);
+  border-radius: 4px;
+  z-index: 10;
+  transition: all var(--transition-speed) linear;
+  /* Slight scale to make them look connected */
+  transform: scale(0.92);
+}
+
+/* Snake Head */
+.snake-head {
+  background-color: var(--color-snake-head);
+  box-shadow: 0 0 15px var(--color-glow);
+  z-index: 20;
+  position: relative;
+  border-radius: 6px;
+  transform: scale(1);
+}
+
+/* Eyes */
+.snake-head::before,
+.snake-head::after {
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 20%;
+  background-color: #0f172a;
+  border-radius: 50%;
+  top: 20%;
+  transition: all 0.2s ease;
+}
+.snake-head::before {
+  left: 20%;
+}
+.snake-head::after {
+  right: 20%;
+}
+
+/* Food */
+.food {
+  background-color: var(--color-food);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--color-food);
+  animation: pulse-glow 1.5s infinite ease-in-out;
+  z-index: 5;
+  transform: scale(0.8);
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    transform: scale(0.7);
+    box-shadow: 0 0 10px var(--color-food);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(0.9);
+    box-shadow: 0 0 20px var(--color-food), 0 0 5px #fff;
+    opacity: 1;
+  }
+}
+
+/* Particles */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: var(--color-food);
+  box-shadow: 0 0 10px var(--color-food);
+}
+
+/* UI Overlays */
+.overlay-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-screen.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay-content {
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+}
+
+.overlay-screen.active .overlay-content {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 450px) {
+  #game-board {
+    width: 340px;
+    height: 340px;
+    background-size: 17px 17px;
+  }
+}

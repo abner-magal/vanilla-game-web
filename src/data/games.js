@@ -1,0 +1,122 @@
+window.games = [
+    {
+        "id": "whack-a-mole",
+        "title": "Whack-a-Mole",
+        "description": "Arcade de reflexo puro: acerte as topeiras em ritmo acelerado e dispute o topo.",
+        "path": "../src/games/whack-a-mole/index.html",
+        "image": "./assets/images/whack-a-mole/whack-a-mole.webp",
+        "icon": "🔨",
+        "category": "Action",
+        "rating": 4.5,
+        "players": "10k",
+        "tags": ["Reflex", "Arcade"]
+    },
+    {
+        "id": "balloon-pop",
+        "title": "Balloon Pop",
+        "description": "Estoure baloes neon, desvie das bombas e encaixe combos brilhantes.",
+        "path": "../src/games/balloon-pop/index.html",
+        "image": "./assets/images/balloon-pop/balloon-pop.webp",
+        "icon": "🎈",
+        "category": "Arcade",
+        "rating": 4.2,
+        "players": "5k",
+        "tags": ["Casual", "Fun"]
+    },
+    {
+        "id": "memory-match",
+        "title": "Memory Match",
+        "description": "Duelo de memoria com cartas neon e feedback imediato a cada par.",
+        "path": "../src/games/memory-match/index.html",
+        "image": "./assets/images/memory-match/memory-match.webp",
+        "icon": "🃏",
+        "category": "Puzzle",
+        "rating": 4.6,
+        "players": "8k",
+        "tags": ["Memory", "Card"]
+    },
+    {
+        "id": "snake",
+        "title": "Snake",
+        "description": "Snake classico turbinado com trilha retro e velocidade crescente.",
+        "path": "../src/games/snake/index.html",
+        "image": "./assets/images/snake/snake.webp",
+        "icon": "🐍",
+        "category": "Classic",
+        "rating": 4.8,
+        "players": "50k",
+        "tags": ["Retro", "Skill"]
+    },
+    {
+        "id": "pong",
+        "title": "Pong",
+        "description": "Classic table tennis arcade game.",
+        "path": "../src/games/pong/index.html",
+        "image": "./assets/images/pong/pong.webp",
+        "icon": "🏓",
+        "category": "Sports",
+        "rating": 4.7,
+        "players": "100k",
+        "tags": ["Retro", "2P"]
+    },
+    {
+        "id": "breakout",
+        "title": "Breakout",
+        "description": "Quebre paredes neon com ricochetes controlados e power-ups raros.",
+        "path": "../src/games/breakout/index.html",
+        "image": "./assets/images/breakout/breakout.webp",
+        "icon": "🧱",
+        "category": "Arcade",
+        "rating": 4.6,
+        "players": "20k",
+        "tags": ["Retro", "Brick"]
+    },
+    {
+        "id": "space-invaders",
+        "title": "Space Invaders",
+        "description": "Defenda a Terra de ondas alien ao som de tiros cadenciados.",
+        "path": "../src/games/space-invaders/index.html",
+        "image": "./assets/images/space-invaders/space-invaders.webp",
+        "icon": "👾",
+        "category": "Action",
+        "rating": 4.9,
+        "players": "80k",
+        "tags": ["Shooter", "Retro"]
+    },
+    {
+        "id": "tetris",
+        "title": "Tetris",
+        "description": "Tetris lendario com quedas suaves, ritmo arcade e linhas limpas.",
+        "path": "../src/games/tetris/index.html",
+        "image": "./assets/images/tetris/tetris.webp",
+        "icon": "🧩",
+        "category": "Puzzle",
+        "rating": 5.0,
+        "players": "200k",
+        "tags": ["Classic", "Logic"]
+    },
+    {
+        "id": "drag-drop",
+        "title": "Number Puzzle",
+        "description": "Organize os numeros arrastando com suavidade; cada movimento e estrategia.",
+        "path": "../src/games/drag-drop/index.html",
+        "image": "./assets/images/drag-drop/drag-drop.webp",
+        "icon": "🔢",
+        "category": "Puzzle",
+        "rating": 4.3,
+        "players": "3k",
+        "tags": ["Logic", "Math"]
+    },
+    {
+        "id": "simon-says",
+        "title": "Simon Says",
+        "description": "Memorize sequencias de luz e som com dificuldade progressiva.",
+        "path": "../src/games/simon-says/index.html",
+        "image": "./assets/images/simon-says/simon-says.webp",
+        "icon": "💡",
+        "category": "Puzzle",
+        "rating": 4.5,
+        "players": "15k",
+        "tags": ["Memory", "Sound"]
+    }
+];

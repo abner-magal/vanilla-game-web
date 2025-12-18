@@ -1,0 +1,126 @@
+/* Breakout Styles - Remastered for Tailwind Hub */
+
+:root {
+    /* Brand Colors */
+    --brand-500: #14b8a6;
+
+    /* Palette Preservation */
+    --color-brick-1: #FF5252;
+    --color-brick-2: #FF4081;
+    --color-brick-3: #E040FB;
+    --color-brick-4: #7C4DFF;
+    --color-brick-5: #536DFE;
+
+    /* UI Theme based on Brick 3 (Purple) */
+    --primary-color: #E040FB;
+    --secondary-color: #536DFE;
+    --text-color: #ffffff;
+}
+
+/* Game Board Internal Styling */
+#game-board {
+    width: 100%;
+    height: 100%;
+    /* Neon Background applied here */
+    background: radial-gradient(circle at center, #1e1e2e 0%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+    cursor: none; /* Hide cursor during gameplay */
+    border-radius: 0 0 16px 16px; /* Match container rounding at bottom? Or just fill */
+}
+
+/* Canvas - ensure it doesn't cover overlays */
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay Screen - Start Screen and Game Over */
+.overlay-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Active overlay - visible and interactive */
+.overlay-screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Hidden overlay - completely hidden */
+.overlay-screen.hidden {
+    display: none !important;
+}
+
+/* Overlay content styling */
+.overlay-content {
+    text-align: center;
+    z-index: 51;
+}
+
+/* Game Elements */
+.paddle {
+    position: absolute;
+    bottom: 30px;
+    height: 12px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    border-radius: 50px;
+    box-shadow: 0 0 20px var(--primary-color);
+    z-index: 10;
+}
+
+.ball {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #fff;
+    z-index: 10;
+}
+
+.brick {
+    position: absolute;
+    border-radius: 4px;
+    /* box-shadow is set via JS for dynamic color */
+    transition: transform 0.1s;
+    z-index: 5;
+}
+
+/* Particles & Floating Text */
+.particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 2px;
+    z-index: 20;
+}
+
+.floating-text {
+    position: absolute;
+    pointer-events: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #fff;
+    z-index: 30;
+    text-shadow: 0 0 10px currentColor;
+}
+
+/* Utility for JS toggles if needed */
+.hidden {
+    display: none !important;
+}

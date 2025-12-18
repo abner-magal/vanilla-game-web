@@ -1,0 +1,260 @@
+/* Simon Says Styles */
+
+:root {
+  /* Branding Colors */
+  --brand-500: #14b8a6;
+  --brand-400: #2dd4bf;
+
+  /* Classic Game Colors */
+  --simon-green: #00ff00;
+  --simon-red: #ff0000;
+  --simon-yellow: #ffff00;
+  --simon-blue: #0000ff;
+  
+  /* Device Colors (Matching Project Theme) */
+  --device-body: #1e293b; /* slate-800 */
+  --device-border: #334155; /* slate-700 */
+  --gap-color: #0f172a; /* slate-900 (Dark background for gaps) */
+}
+
+/* Main Layout */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- The Device Casing --- */
+.simon-device {
+  background-color: var(--device-body);
+  padding: 40px;
+  border-radius: 40px;
+  border: 2px solid var(--device-border);
+  box-shadow: 
+      0 20px 50px rgba(0,0,0,0.5),
+      inset 0 2px 10px rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+}
+
+/* --- Circular Board --- */
+.game-board-circle {
+  width: 300px;
+  height: 300px;
+  background-color: var(--gap-color);
+  border-radius: 50%;
+  position: relative;
+  border: 12px solid var(--gap-color);
+  box-shadow: 
+      0 10px 20px rgba(0,0,0,0.5),
+      inset 0 5px 10px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* Center Hub (The "Donut" Hole) */
+.center-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px;
+  height: 110px;
+  background-color: var(--gap-color); /* Match gap */
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid var(--gap-color); /* Smooth transition */
+}
+
+/* Quadrants Grid */
+.quadrants {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px; /* The black lines */
+  width: 100%;
+  height: 100%;
+  background-color: var(--gap-color);
+}
+
+/* --- Buttons --- */
+.simon-btn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.1s, filter 0.1s, transform 0.05s;
+  position: relative;
+}
+
+.simon-btn:active {
+  opacity: 0.7;
+}
+
+/* Specific Shapes & Colors */
+.simon-btn.green { 
+  background-color: var(--simon-green); 
+  border-top-left-radius: 100%; 
+}
+.simon-btn.red { 
+  background-color: var(--simon-red); 
+  border-top-right-radius: 100%; 
+}
+.simon-btn.yellow { 
+  background-color: var(--simon-yellow); 
+  border-bottom-left-radius: 100%; 
+}
+.simon-btn.blue { 
+  background-color: var(--simon-blue); 
+  border-bottom-right-radius: 100%; 
+}
+
+/* Active State (Lit up) */
+.simon-btn.active {
+  opacity: 1 !important;
+  filter: brightness(1.5) drop-shadow(0 0 15px currentColor);
+  z-index: 2;
+}
+
+/* Flash overlay */
+.simon-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.4);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.05s;
+  pointer-events: none;
+}
+.simon-btn.active::after {
+  opacity: 1;
+}
+
+/* --- Control Panel --- */
+.device-controls {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  background: #162032; /* Darker slate for panel */
+  padding: 16px 30px;
+  border-radius: 20px;
+  border: 1px solid var(--device-border);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #64748b; /* slate-500 */
+  font-weight: 700;
+}
+
+/* Round Buttons (Start/Strict) */
+.btn-round {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+
+.btn-round:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.start-color { background-color: var(--simon-red); }
+.strict-color { background-color: var(--simon-yellow); }
+
+/* Digital Display */
+.digital-display {
+  background-color: #1a0505; /* Dark Red bg */
+  color: #ff0000; /* Lit red text */
+  font-family: 'Rajdhani', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid #330000;
+  min-width: 60px;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: inset 0 0 5px #000;
+  text-shadow: 0 0 5px rgba(255,0,0,0.5);
+}
+
+.digital-display.off {
+  color: #4a0404; /* Dimmed red */
+  text-shadow: none;
+}
+
+/* Strict LED */
+.led {
+  width: 8px;
+  height: 8px;
+  background-color: #330000;
+  border-radius: 50%;
+  border: 1px solid #111;
+  margin-bottom: 4px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.led.on {
+  background-color: #ff0000; /* Use red for strict LED standard */
+  box-shadow: 0 0 8px #ff0000;
+}
+
+/* Message Overlay */
+.message-overlay {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--brand-400); /* Teal */
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-shadow: 0 0 10px rgba(45, 212, 191, 0.3);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.message-overlay.visible {
+  opacity: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 480px) {
+  .game-board-circle {
+    width: 260px;
+    height: 260px;
+  }
+  .simon-device {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,27 @@
+/*
+ * TODO: Unificar design tokens
+ * Cores atuais: --primary-color: #00ff9d
+ * Tailwind usa: brand-500: #14b8a6
+ * Decidir qual palette usar e consolidar
+ */
+
+:root {
+  /* Colors */
+  --primary-color: #00ff9d;
+  --secondary-color: #ff0055;
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-color: #ffffff;
+  --text-muted: #888888;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Typography */
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Courier New', Courier, monospace;
+}
