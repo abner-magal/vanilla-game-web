@@ -41,14 +41,7 @@
 
 /* Game Board */
 .game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
     perspective: 700px;
-    width: 80%;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 2rem;
 }
 
 /* Card Styles */
