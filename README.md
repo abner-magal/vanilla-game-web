@@ -2,17 +2,13 @@
 
 Uma coleção de **10 jogos arcade clássicos** construídos inteiramente com tecnologias web nativas (HTML5, CSS3, JavaScript ES6+). Zero frameworks, zero bundlers, zero dependências.
 
-![Status](https://img.shields.io/badge/Status-MVP%20Completo-brightgreen)
-![Version](https://img.shields.io/badge/Version-1.0.2-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-
 ---
 
 ## 🚀 Demo Rápida
 
 ```bash
 # Clone o repositório
-git clone <repository-url>
+git clone https://github.com/abner-magal/game-web.git
 cd game-site
 
 # Inicie um servidor local
@@ -233,25 +229,17 @@ O projeto usa **Web Audio API** para síntese de sons em tempo real:
 
 ---
 
-## 🤝 Contribuindo
+### Autores
 
-1. Fork o repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -m 'Add nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
+**Abner Magalhães**
+- 🔗 LinkedIn: [@abner-magalhaes](https://www.linkedin.com/in/abner-magalhaes-/)
+- 💻 GitHub: [@abner-magal](https://github.com/abner-magal)
 
 ### Convenções de Código
 
 - **JavaScript**: Classes em PascalCase, funções em camelCase
 - **CSS**: Classes em kebab-case, variáveis CSS para tokens
 - **HTML**: IDs para JS, classes para estilos
-
----
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
