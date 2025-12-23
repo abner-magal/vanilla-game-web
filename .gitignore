@@ -30,3 +30,4 @@ screenshots/
 test-reports/
 tests/
 .dcignore
+.gitignore
