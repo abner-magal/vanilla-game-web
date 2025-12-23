@@ -8,8 +8,8 @@ Uma coleção de **10 jogos arcade clássicos** construídos inteiramente com te
 
 ```bash
 # Clone o repositório
-git clone https://github.com/abner-magal/game-web.git
-cd game-site
+git clone https://github.com/abner-magal/vanilla-game-web.git
+cd vanilla-game-web
 
 # Inicie um servidor local
 python -m http.server 8080
@@ -53,7 +53,7 @@ python -m http.server 8080
 ## 📁 Estrutura do Projeto
 
 ```
-game-site/
+vanilla-game-web/
 ├── public/                    # Assets públicos e landing page
 │   ├── index.html             # Dashboard principal
 │   ├── config/games.json      # Configuração dos jogos
@@ -87,11 +87,7 @@ game-site/
 │   ├── global.css             # Reset e estilos base
 │   └── components/            # Estilos de componentes
 │
-└── tests/                     # Suite de testes
-    ├── integration/
-    ├── property/
-    ├── validation/
-    └── runners/
+
 ```
 
 ---
@@ -120,7 +116,7 @@ game-site/
 ### Opção 1: Python (Recomendado)
 
 ```bash
-cd game-site
+cd vanilla-game-web
 python -m http.server 8080
 # Acesse: http://localhost:8080/public/
 ```
@@ -128,13 +124,13 @@ python -m http.server 8080
 ### Opção 2: Node.js
 
 ```bash
-npx serve game-site -p 8080
+npx serve vanilla-game-web -p 8080
 ```
 
 ### Opção 3: PHP
 
 ```bash
-cd game-site
+cd vanilla-game-web
 php -S localhost:8080
 ```
 
