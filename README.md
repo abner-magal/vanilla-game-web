@@ -144,23 +144,6 @@ php -S localhost:8080
 
 ---
 
-## 🧪 Testes
-
-A suite de testes está organizada em categorias:
-
-```bash
-# Executar todos os testes
-node tests/run.js
-
-# Executar por categoria
-node tests/run.js property
-node tests/run.js validation
-node tests/run.js integration
-
-# Executar teste específico
-node tests/property/snake.test.js
-```
-
 ### Estrutura de Testes
 
 - **Integration**: Navegação, menu hamburger, overlays
@@ -243,7 +226,6 @@ O projeto usa **Web Audio API** para síntese de sons em tempo real:
 
 - **Landing Page**: `public/index.html`
 - **Configuração**: `public/config/games.json`
-- **Documentação**: `memory-bank/`
 
 ---
 
